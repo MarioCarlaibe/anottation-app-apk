@@ -1,50 +1,112 @@
-# Welcome to your Expo app 👋
+# Anottation App APK
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Aplicativo mobile de anotações desenvolvido com **React Native + Expo**, com foco em simplicidade e produtividade.
 
-## Get started
+## ✨ Funcionalidades
 
-1. Install dependencies
+- Criar anotações rapidamente
+- Categorizar notas (Geral, Trabalho, Estudo)
+- Marcar nota como concluída
+- Excluir nota
+- Persistência local com `AsyncStorage`
 
-   ```bash
-   npm install
-   ```
+## 🧱 Stack
 
-2. Start the app
+- **Expo SDK 54**
+- **React Native 0.81**
+- **Expo Router** (roteamento por arquivos)
+- **NativeWind + TailwindCSS** (estilização)
+- **AsyncStorage** (armazenamento local)
 
-   ```bash
-   npx expo start
-   ```
+## 📁 Estrutura principal
 
-In the output, you'll find options to open the app in a
-
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
-
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
+```text
+app/
+   (tabs)/
+      index.tsx          # Entrada da Home no router
+src/
+   screens/
+      Home.js            # Tela principal de anotações
+   components/
+      NoteItem.js        # Card de cada anotação
+   storage/
+      notesStorage.js    # Camada de persistência local
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+## 🚀 Como executar
 
-## Learn more
+### Pré-requisitos
 
-To learn more about developing your project with Expo, look at the following resources:
+- Node.js LTS
+- npm
+- Expo CLI (via `npx`)
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+### Instalação
 
-## Join the community
+```bash
+npm install
+```
 
-Join our community of developers creating universal apps.
+### Rodar em desenvolvimento
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+```bash
+npm run start
+```
+
+Atalhos disponíveis:
+
+```bash
+npm run android
+npm run ios
+npm run web
+```
+
+## ✅ Qualidade do projeto
+
+Validar lint:
+
+```bash
+npm run lint
+```
+
+Validar compatibilidade do Expo SDK/dependências:
+
+```bash
+npx expo-doctor
+```
+
+## 🔧 Scripts
+
+- `npm run start` — inicia o projeto com Expo
+- `npm run android` — abre no Android
+- `npm run ios` — abre no iOS
+- `npm run web` — abre no navegador
+- `npm run lint` — executa lint do Expo
+- `npm run reset-project` — reseta a base inicial do app
+
+## 🧠 Como funciona a persistência
+
+As notas são salvas localmente usando a chave `NOTES` no `AsyncStorage`. O fluxo principal:
+
+1. A tela Home carrega notas ao iniciar (`getNotes`)
+2. Ao criar/editar estado local, os dados são persistidos com `saveNotes`
+3. Na próxima abertura do app, as notas são restauradas automaticamente
+
+## 📌 Roadmap sugerido
+
+- Editar nota existente
+- Busca/filtro por categoria
+- Ordenação por data/criação
+- Exportação de notas
+
+## 🤝 Contribuição
+
+Sugestões e melhorias são bem-vindas. Você pode abrir uma issue ou PR com:
+
+- descrição da melhoria
+- motivação
+- impacto esperado no app
+
+## 📄 Licença
+
+Defina aqui a licença do projeto (ex.: MIT) quando desejar publicar oficialmente.
