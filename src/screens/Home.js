@@ -57,16 +57,16 @@ export default function Home() {
   }
 
   return (
-    <View style={{ padding: 20, marginTop: 50 }}>
-      <Text style={{ fontSize: 24, fontWeight: 'bold' }}>
+    <View className="flex-1 bg-white p-5 mt-10">
+      <Text className="text-2xl font-bold mb-4">
         Minhas Anotações
       </Text>
 
       <TextInput
         value={text}
         onChangeText={setText}
-        placeholder="Digite..."
-        style={{ borderWidth: 1, padding: 12, marginVertical: 10, borderRadius: 8 }}
+        placeholder="Digite sua nota..."
+        className="border border-gray-300 p-3 mb-3 rounded-lg"
       />
 
       <Picker selectedValue={category} onValueChange={setCategory}>
@@ -77,15 +77,9 @@ export default function Home() {
 
       <TouchableOpacity 
         onPress={addNote}
-        style={{
-            backgroundColor: '#007bff',
-            padding: 12,
-            borderRadius: 8,
-            alignItems: 'center',
-            marginTop: 10
-        }}
+        className="bg-blue-500 p-3 rounded-lg items-center"
       >
-        <Text style={{ color: '#fff', fontWeight: 'bold' }}>
+        <Text className="text-white font-bold">
             Salvar
         </Text>
       </TouchableOpacity>
