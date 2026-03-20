@@ -1,27 +1,19 @@
-import { View, Text, TouchableOpacity } from 'react-native'
+import { Text, TouchableOpacity, View } from "react-native";
 
-export default function NoteItem({ note, onToggle, onDelete }) {
+export default function NoteItem({ note, onToggle }) {
   return (
-    <View className="border rounded-lg p-3 mt-3 bg-white">
+    <View className="rounded-lg border border-gray-500 bg-gray-700 p-3">
       <TouchableOpacity onPress={() => onToggle(note.id)}>
         <Text
-          className={`text-base ${
-            note.done ? 'line-through text-gray-400' : ''
+          className={`text-base text-gray-50 ${
+            note.done ? "line-through text-gray-300" : ""
           }`}
         >
-          {note.done ? '✅ ' : '⬜ '} {note.text}
+          {note.done ? "✅ " : "⬜ "} {note.text}
         </Text>
       </TouchableOpacity>
 
-      <Text className="text-gray-500 mt-1">
-        {note.category}
-      </Text>
-
-      <TouchableOpacity onPress={() => onDelete(note.id)}>
-        <Text className="text-red-500 mt-2">
-          Excluir
-        </Text>
-      </TouchableOpacity>
+      <Text className="mt-1 text-gray-200">{note.category}</Text>
     </View>
-  )
+  );
 }
